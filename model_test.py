@@ -18,11 +18,9 @@ def test_yolo_video_processing(tmp_path):
     fps = cap.get(cv2.CAP_PROP_FPS)
     assert width > 0 and height > 0 and fps > 0, "Invalid video properties."
 
-    # Output path
-    output_path = tmp_path / "output_with_boxes.mp4"
 
     # Output writer
-    out = cv2.VideoWriter(str(output_path), cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
+    out = cv2.VideoWriter(str("output_with_boxes.mp4"), cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
 
     # Process only a few frames (to keep test fast)
     frame_count = 0
