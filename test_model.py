@@ -3,7 +3,7 @@ import pytest
 import os
 
 # Adjust this path if necessary
-MODEL_PATH = 'sets/train5/weights/best.pt'
+MODEL_PATH = 'best.pt'
 
 def load_model(model_path):
     """Load the YOLOv11 classification model."""
@@ -23,6 +23,6 @@ def test_model_predicts():
     """Test if the model can make a prediction on an example image."""
     model = load_model(MODEL_PATH)
     print("Model loaded, making prediction...")  # Print before making the prediction
-    results = model("images (1).jpg")  # Use an image path
+    results = model("image.jpg")  # Use an image path
     print(f"Prediction results: {results}")  # Print the prediction results
     assert results is not None, "Model did not return a prediction."
