@@ -7,7 +7,7 @@ from PIL import Image
 import torchvision.transforms as transforms
 
 # Adjust this path if necessary
-MODEL_PATH = 'sets/traing5/weights/best.pt'
+MODEL_PATH = 'sets/train5/weights/best.pt'
 
 def load_model(model_path):
     """Load the YOLO classification model."""
