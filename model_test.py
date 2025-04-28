@@ -3,10 +3,10 @@ import cv2
 import pytest
 from ultralytics import YOLO
 
-@pytest.mark.skipif(not os.path.exists("best.pt") or not os.path.exists("cat.mp4"), reason="Model or video file not found")
+@pytest.mark.skipif(not os.path.exists("box_sets/train12/weights/best.pt") or not os.path.exists("cat.mp4"), reason="Model or video file not found")
 def test_yolo_video_processing(tmp_path):
     # Load YOLO model
-    model = YOLO("best.pt")
+    model = YOLO("box_sets/train12/weights/best.pt")
 
     # Open video
     cap = cv2.VideoCapture("cat.mp4")
@@ -18,9 +18,11 @@ def test_yolo_video_processing(tmp_path):
     fps = cap.get(cv2.CAP_PROP_FPS)
     assert width > 0 and height > 0 and fps > 0, "Invalid video properties."
 
+    # Output path
+    output_path = tmp_path / "output_with_boxes.mp4"
 
     # Output writer
-    out = cv2.VideoWriter(str("output_with_boxes.mp4"), cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
+    out = cv2.VideoWriter(str(output_path), cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
 
     # Process only a few frames (to keep test fast)
     frame_count = 0
@@ -55,5 +57,8 @@ def test_yolo_video_processing(tmp_path):
     cap.release()
     out.release()
 
+    # Check that output file exists and is not empty
+    assert output_path.exists(), "Output video was not created."
+    assert output_path.stat().st_size > 0, "Output video is empty."
 
-    print(f"✅ Test completed! Video saved at output_with_boxes.mp4")
+    print(f"✅ Test completed! Video saved at {output_path}")
