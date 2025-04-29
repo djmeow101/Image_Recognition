@@ -25,4 +25,12 @@ def test_model_predicts():
     print("Model loaded, making prediction...")  # Print before making the prediction
     results = model("image.jpg")  # Use an image path
     print(f"Prediction results: {results}")  # Print the prediction results
+    results = model("dog.jpg")  # Use an image path
+    print(f"Prediction results: {results}")  # Print the prediction results
+    results = model("cat.jpg")  # Use an image path
+    print(f"Prediction results: {results}")  # Print the prediction results
+    results = model("dalek.jpg")  # Use an image path
+    print(f"Prediction results: {results}")  # Print the prediction results
+    results = model("images.jpg")  # Use an image path
+    print(f"Prediction results: {results}")  # Print the prediction results
     assert results is not None, "Model did not return a prediction."
