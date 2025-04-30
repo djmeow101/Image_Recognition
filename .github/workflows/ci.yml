@@ -2,9 +2,9 @@ name: CI/CD for Image Recognition
 
 on:
   push:
-    branches: [ Unit-Testing ]
+    branches: [ Unit-Testing_2 ]
   pull_request:
-    branches: [ Unit-Testing ]
+    branches: [ Unit-Testing_2 ]
 
 jobs:
   build-test:
@@ -27,3 +27,9 @@ jobs:
     - name: Run Unit Tests
       run: |
         pytest -s
+        
+    - name: Upload output video
+      uses: actions/upload-artifact@v4
+      with:
+        name: output_with_boxes
+        path: /home/runner/work/your-repo-name/path/to/output_with_boxes.mp4
