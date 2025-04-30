@@ -2,10 +2,10 @@ from ultralytics import YOLO
 import cv2
 
 # Load model
-model = YOLO("C:\\Users\\bourl\\OneDrive\\Documents\\python_codes\\Soft_project\\box_sets\\train13\\weights\\best.pt")
+model = YOLO("box_sets\\train13\\weights\\best.pt")
 
 # Path to input image
-image_path = "C:\\Users\\bourl\\OneDrive\\Documents\\python_codes\\Soft_project\\dalek.jpg"
+image_path = "dalek.jpg"
 
 # Read the image with OpenCV
 img = cv2.imread(image_path)
@@ -33,7 +33,7 @@ for result in results:
         cv2.putText(img, label, (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 1)
 
 # Save output image
-output_path = "C:\\Users\\bourl\\OneDrive\\Documents\\python_codes\\Soft_project\\output.jpg"
+output_path = "output.jpg"
 cv2.imwrite(output_path, img)
 
 print(f"Saved image with boxes to: {output_path}")
