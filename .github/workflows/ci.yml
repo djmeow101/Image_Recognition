@@ -2,9 +2,9 @@ name: CI/CD for Image Recognition
 
 on:
   push:
-    branches: [ Unit-Testing_2 ]
+    branches: [ final_stuff ]
   pull_request:
-    branches: [ Unit-Testing_2 ]
+    branches: [ final_stuff ]
 
 jobs:
   build-test:
