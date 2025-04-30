@@ -1,0 +1,7 @@
+train: C:\Users\bourl\OneDrive\Documents\python_codes\Soft_project\dataset_3\train
+val: C:\Users\bourl\OneDrive\Documents\python_codes\Soft_project\dataset_3\val
+test: C:\Users\bourl\OneDrive\Documents\python_codes\Soft_project\dataset_3\test
+
+nc: 5
+names: ['cat','dog','human','dalek','lightsaber']
+
